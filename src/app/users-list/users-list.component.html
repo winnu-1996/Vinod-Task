@@ -1,0 +1,37 @@
+<div>
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col" >Image</th>
+            <th scope="col" >Name</th>
+            <th scope="col" >Email</th>
+            <th scope="col" >Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            *ngFor="let user of usersList;let i=index">
+            <!-- <th scope="row">{{ (page -1) * pageSize + i + 1 }}</th> -->
+            <td>
+                {{user.id}}
+            </td>
+            <td>
+              <img [src]="user.avatar"  height="100px" width="100px">
+              
+            </td>
+            <td>{{ user.first_name }} {{user.last_name}}</td>
+            <td>{{ user.email }}</td>
+            <td>
+                <button (click)='navigateToUserDetails(user.id)'>
+                    View
+                </button>
+                <button>
+                    Delete
+                </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+</div>
